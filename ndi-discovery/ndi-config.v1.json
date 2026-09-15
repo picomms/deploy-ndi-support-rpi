@@ -1,0 +1,4 @@
+"networks": { 
+      "ips": "", 
+      "discovery": "0.0.0.0" 
+    }
