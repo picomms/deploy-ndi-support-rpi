@@ -1,0 +1,11 @@
+---
+roles:
+  - name: geerlingguy.security
+  - name: geerlingguy.docker
+  - name: geerlingguy.firewall
+  - name: geerlingguy.nfs
+
+collections:
+  - name: community.docker
+  - name: community.general
+  - name: ansible.posix
