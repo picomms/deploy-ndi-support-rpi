@@ -3,11 +3,11 @@
 # Connection
 # =============================================================================
 # ansible_host: "{{ ssh_hosts.inquirypi.ip }}"
-ansible_user: "{{ ssh_hosts.ndi-support.user }}"
+ansible_user: "{{ ssh_hosts['ndi-support'].user }}"
 ansible_connection: local
 ansible_become_user: root
 ansible_become_exe: sudo
-ansible_become_pass: "{{ ssh_hosts.ndi-support.password }}"
+ansible_become_pass: "{{ ssh_hosts['ndi-support'].password }}"
 
 # =============================================================================
 # Host
