@@ -1,4 +1,3 @@
-# More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
 networks:
   frontend:
   backend:
@@ -21,28 +20,6 @@ services:
     networks:
       - frontend
       - backend
-
-  pihole:
-    container_name: pihole
-    image: pihole/pihole:latest
-    ports:
-      - "53:53/tcp"
-      - "53:53/udp"
-      - "80:80/tcp"
-      - "443:443/tcp"
-      - "67:67/udp"
-      - "123:123/udp"
-    environment:
-      TZ: 'Europe/Dublin'
-      FTLCONF_webserver_api_password: 'Love Life Apples'
-      FTLCONF_dns_listeningMode: 'ALL'
-    volumes:
-      - pihole:/etc/pihole
-    cap_add:
-      - NET_ADMIN
-      - SYS_TIME
-      - SYS_NICE
-    restart: unless-stopped
 
   ndi-discovery:
     container_name: ndi-discovery

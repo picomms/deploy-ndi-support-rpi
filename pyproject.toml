@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "My Ansible Deployment"
 readme = "README.md"
 keywords = ['python']
-requires-python = "==3.12"
+requires-python = ">=3.12,<=3.13"
 classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",

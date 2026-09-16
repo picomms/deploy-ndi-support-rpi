@@ -15,7 +15,7 @@ VAULT := vault/secrets.yml
 	vault-edit vault-view vault-encrypt vault-decrypt
 
 help: ## Show this help
-	@echo "Bradford — common targets:"
+	@echo "NDI Server — common targets:"
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## ' $(MAKEFILE_LIST) \
 		| awk 'BEGIN {FS = ":.*?## "}; {printf "  %-18s %s\n", $$1, $$2}'
 
@@ -39,6 +39,12 @@ clean: ## Recreate the stack (volumes, rebuild, prune)
 	docker compose build
 	docker compose up -d
 	docker system prune -f
+
+dhcp-up: ## Start the DHCP Server
+	docker compose -f compose.dhcp.yml up -d
+
+dhcp-down: ## Stop the DHCP Server
+	docker compose -f compose.dhcp.yml down
 
 # --- Ansible ---
 
