@@ -1,0 +1,29 @@
+---
+- name: Setup System Provisioning
+  hosts: linux
+  become: true
+  vars_files:
+    - vault/secrets.yml
+  tasks:
+    - name: Install basics
+      ansible.builtin.include_tasks: tasks/provision_linux.yml
+  roles:
+    - role: geerlingguy.security
+
+- name: Setup Docker
+  hosts: docker
+  become: true
+  vars_files:
+    - vault/secrets.yml
+  roles:
+    - role: geerlingguy.docker
+      become: true
+      tags: [docker]
+
+- name: Setup Firewall
+  hosts: linux
+  become: true
+  vars_files:
+    - vault/secrets.yml
+  roles:
+    - role: geerlingguy.firewall
